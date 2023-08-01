@@ -18,7 +18,7 @@ class Grid {
             xi=0;
             for (int x = 0; x < dim.height; x += cellD.width) {
             if (xi < cols && yi < rows){
-                    this.cells[xi][yi] = new Cell(x,y,cellD);
+                    this.cells[xi][yi] = new Cell(x,y,cellD,new Point(xi, yi));
                 }
                 
                 xi++;
