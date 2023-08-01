@@ -15,21 +15,8 @@ public class Main extends JFrame{
         }
         @Override
         public void paint(Graphics g){
-            // for(int y = 0;y<this.getHeight()-10;y+=35){
-            //     for(int x = 0;x<this.getWidth()-10;x+=35){
-            //         g.drawRect(x,y,35,35);
-            //     }
-            // }
-            for(int y = 0;y<710;y+=35){
-                for(int x = 0;x<710;x+=35){
-                    g.setColor(Color.WHITE);
-                    g.fillRect(x,y,35,35);
-                    g.setColor(Color.BLACK);
-                    g.drawRect(x,y,35,35);
-                    
-                }
-            }
-            
+            Grid grid = new Grid(new Dimension(720,720),new Dimension(35,35));   
+            grid.paint(g);
         }
     }
 
