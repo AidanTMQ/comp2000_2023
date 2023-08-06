@@ -1,38 +1,24 @@
-import java.awt.*;
+import java.awt.Graphics;
+import java.awt.Point;
 
-class Grid {
-    protected Dimension dim;
-    protected Dimension cellD;
-    Cell [][] cells;
-
-    public Grid (Dimension dim,Dimension cellD){
-        this.dim = dim;
-        this.cellD=cellD;
-
-        int rows = dim.width/cellD.width;
-        int cols = dim.height/cellD.height;
-        this.cells = new Cell[cols][rows];
-        int xi = 0;
-        int yi = 0;
-        for (int y = 0; y < dim.height; y += cellD.height) {
-            xi=0;
-            for (int x = 0; x < dim.height; x += cellD.width) {
-            if (xi < cols && yi < rows){
-                    this.cells[xi][yi] = new Cell(x,y,cellD,new Point(xi, yi));
-                }
-                
-                xi++;
-            }
-            yi++;
-            
-        }
+public class Grid {
+  // fields
+  Cell[][] cells = new Cell[20][20];
+  
+  // constructors
+  public Grid() {
+    for(int i=0; i<cells.length; i++) {
+      for(int j=0; j<cells[i].length; j++) {
+        cells[i][j] = new Cell(10+Cell.size*i, 10+Cell.size*j);
+      }
     }
-
-    public void paint(Graphics g){
-        for(Cell[] cols:this.cells){
-            for (Cell c:cols){
-                c.paint(g);
-            }
-        }
+  }
+  // methods
+  public void paint(Graphics g, Point mousePos) {
+    for(int i=0; i<cells.length; i++) {
+      for(int j=0; j<cells[i].length; j++) {
+        cells[i][j].paint(g, mousePos);
+      }
     }
+  }
 }
