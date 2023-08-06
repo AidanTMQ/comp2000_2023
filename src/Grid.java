@@ -32,7 +32,6 @@ class Grid {
         for(Cell[] cols:this.cells){
             for (Cell c:cols){
                 c.paint(g);
-                // System.out.println(c.x+" "+c.y);
             }
         }
     }

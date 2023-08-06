@@ -11,7 +11,7 @@ public class Main extends JFrame{
     class Canvas extends JPanel{
         public Canvas(){
             setPreferredSize(new Dimension(720,720));
-
+            
         }
         @Override
         public void paint(Graphics g){

@@ -21,10 +21,7 @@ class Cell {
         g.setColor(Color.BLACK);
         g.drawRect(this.x, this.y, this.dim.width,this.dim.height);
         g.drawString(this.xl+","+this.yl,this.x+5,this.y+dim.height/2);
-        if 
     }
 
-    public boolean mouseOver(Point mousepos){
-        return ((mousepos.x>this.x)&&(mousepos.x<this.x+dim.width))&&((mousepos.y>this.y)&&(mousepos.y<this.y+dim.height));
-        
+    
 }
