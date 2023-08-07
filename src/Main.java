@@ -20,8 +20,10 @@ public class Main extends JFrame {
       public Canvas() {
         setPreferredSize(new Dimension(720, 720));
         actors.add(new Bird(grid.getCell(0, 0)));
-        actors.add(new Dog(grid.getCell(3, 12)));
-        actors.add(new Cat(grid.getCell(19, 19)));
+        actors.add(new Dog(grid.getCell(1, 0)));
+        actors.add(new Cat(grid.getCell(2, 0)));
+        actors.add(new Mouse(grid.getCell(3, 0)));
+
         stage = new Stage(grid,actors);
       }
 
