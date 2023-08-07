@@ -6,7 +6,7 @@ public class Cell extends Rectangle{
   // fields
   int x;
   int y;
-  static int size = 35;
+  static int size = 200;
   Actor actor;
   Color bgColor = Color.WHITE;
   // constructors
