@@ -7,7 +7,8 @@ public class Cell extends Rectangle{
   int x;
   int y;
   static int size = 35;
-
+  Actor actor;
+  Color bgColor = Color.WHITE;
   // constructors
   public Cell(int inX, int inY) {
     super(inX, inY,size,size);
@@ -20,11 +21,14 @@ public class Cell extends Rectangle{
     if(contains(mousePos)) {
       g.setColor(Color.GRAY);
     } else {
-      g.setColor(Color.WHITE);
+      g.setColor(this.bgColor);
     }
     g.fillRect(x, y, size, size);
     g.setColor(Color.BLACK);
     g.drawRect(x, y, size, size);
+    if (actor != null) {
+      actor.paint(g);
+    }
   }
 
 

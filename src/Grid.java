@@ -13,6 +13,9 @@ public class Grid {
       }
     }
   }
+  public Cell getCell(int x, int y){
+    return cells[x][y];
+  }
   // methods
   public void paint(Graphics g, Point mousePos) {
     for(int i=0; i<cells.length; i++) {

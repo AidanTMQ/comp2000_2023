@@ -4,6 +4,8 @@ import java.awt.Graphics;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import java.util.ArrayList;
+
 public class Main extends JFrame {
     public static void main(String[] args) throws Exception {
       Main window = new Main();
@@ -12,13 +14,20 @@ public class Main extends JFrame {
 
     class Canvas extends JPanel {
       Grid grid = new Grid();
+      ArrayList<Actor> actors = new ArrayList<Actor>();
+      Stage stage;
+      
       public Canvas() {
         setPreferredSize(new Dimension(720, 720));
+        actors.add(new Bird(grid.getCell(0, 0)));
+        actors.add(new Dog(grid.getCell(3, 12)));
+        actors.add(new Cat(grid.getCell(19, 19)));
+        stage = new Stage(grid,actors);
       }
 
       @Override
       public void paint(Graphics g) {
-        grid.paint(g, getMousePosition());
+        stage.paint(g, getMousePosition());
       }
     }
 
