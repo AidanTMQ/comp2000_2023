@@ -1,8 +1,8 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
-
-public class Cell {
+import java.awt.Rectangle;
+public class Cell extends Rectangle{
   // fields
   int x;
   int y;
@@ -10,6 +10,7 @@ public class Cell {
 
   // constructors
   public Cell(int inX, int inY) {
+    super(inX, inY,size,size);
     x = inX;
     y = inY;
   }
@@ -26,9 +27,11 @@ public class Cell {
     g.drawRect(x, y, size, size);
   }
 
+
+  @Override
   public boolean contains(Point p) {
     if(p != null) {
-      return x < p.x && x+size > p.x && y < p.y && y+size > p.y;
+      return super.contains(p);
     } else {
       return false;
     }
