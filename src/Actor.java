@@ -1,12 +1,13 @@
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.HashMap;
+import java.awt.Polygon;
 public class Actor {
     protected Cell cell;
     protected Image img;
+    protected HashMap<String,Polygon> polygons;
     
-    public Actor() {
-    }
     public Actor(Cell cell){
         setCell(cell);
     }
