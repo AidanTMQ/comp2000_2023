@@ -1,49 +1,40 @@
-// Author: Aidan Taylor
-
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Polygon;
-import java.util.HashMap;
+import java.util.ArrayList;
 
 public class Cat extends Actor {
-    public Cat(Cell cell) {
-        super(cell);
-        super.setImg("src\\Assets\\cat.png");
-        cell.bgColor = Color.blue;
-        
-        this.polygons = new HashMap<String,Polygon>();
-        Polygon ear1 = new Polygon();
-        ear1.addPoint(cell.x + 11, cell.y + 5);
-        ear1.addPoint(cell.x + 15, cell.y + 15);
-        ear1.addPoint(cell.x + 7, cell.y + 15);
-        Polygon ear2 = new Polygon();
-        ear2.addPoint(cell.x + 22, cell.y + 5);
-        ear2.addPoint(cell.x + 26, cell.y + 15);
-        ear2.addPoint(cell.x + 18, cell.y + 15);
-        Polygon face = new Polygon();
-        face.addPoint(cell.x + 5, cell.y + 15);
-        face.addPoint(cell.x + 29, cell.y + 15);
-        face.addPoint(cell.x + 17, cell.y + 30);
-        this.polygons.put("ear1", ear1);
-        this.polygons.put("ear2", ear2);
-        this.polygons.put("face", face);
-    }
-
-
-    @Override
-    public void paint(Graphics g) {
-    
-        
-        g.setColor(Color.white);
-        g.fillPolygon(this.polygons.get("face"));
-        g.setColor(Color.black);
-        g.drawPolygon(this.polygons.get("face"));
-        g.setColor(Color.orange);
-        g.fillPolygon(this.polygons.get("ear1"));
-        g.setColor(Color.black);
-        g.fillPolygon(this.polygons.get("ear2"));
-        g.drawPolygon(this.polygons.get("ear1"));
-        g.drawPolygon(this.polygons.get("ear2"));      
-    }
-
+  // Cat design courtesy of Sawyer James Rush
+  public Cat(Cell inLoc) {
+    loc = inLoc;
+    color = Color.BLUE;
+    display = new ArrayList<Polygon>();
+    Polygon ear1 = new Polygon();
+    ear1.addPoint(loc.x + 10, loc.y);
+    ear1.addPoint(loc.x + 7, loc.y + 5);
+    ear1.addPoint(loc.x + 13, loc.y + 5);
+    Polygon ear2 = new Polygon();
+    ear2.addPoint(loc.x + 25, loc.y);
+    ear2.addPoint(loc.x + 22, loc.y + 5);
+    ear2.addPoint(loc.x + 28, loc.y +5);
+    Polygon face = new Polygon();
+    face.addPoint(loc.x + 7, loc.y + 5);
+    face.addPoint(loc.x + 28, loc.y + 5);
+    face.addPoint(loc.x + 20, loc.y + 15);
+    face.addPoint(loc.x + 15, loc.y + 15);
+    Polygon body = new Polygon();
+    body.addPoint(loc.x + 20, loc.y + 15);
+    body.addPoint(loc.x + 15, loc.y + 15);
+    body.addPoint(loc.x + 10, loc.y + 30);
+    body.addPoint(loc.x + 25, loc.y + 30);
+    Polygon tail = new Polygon();
+    tail.addPoint(loc.x + 25, loc.y + 30);
+    tail.addPoint(loc.x + 30, loc.y + 15);
+    tail.addPoint(loc.x + 25, loc.y + 10);
+    tail.addPoint(loc.x + 28, loc.y + 15);
+    display.add(face);
+    display.add(ear1);
+    display.add(ear2);
+    display.add(body);
+    display.add(tail);
+  }
 }
