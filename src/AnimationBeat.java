@@ -3,7 +3,7 @@ public class AnimationBeat {
     private long a; // length of phase a
     private long b; // length of phase b
     private long c; // length of phase c
-   
+    private static AnimationBeat instance;
     public AnimationBeat() {
         started = System.currentTimeMillis();
         this.a = 5000;
@@ -11,6 +11,11 @@ public class AnimationBeat {
         this.c = 500;
     }
 
+
+    public static AnimationBeat getInstance(){
+        if (instance == null) instance = new AnimationBeat();
+        return instance;
+    }
     // returns which phase the animation is currently in
     public char inPhase() {
         long currTime = System.currentTimeMillis();
