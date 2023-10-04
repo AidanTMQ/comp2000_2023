@@ -37,6 +37,8 @@ public class StageReader {
             stage.actors.add(new Dog(c, human));
           } else if(value.equals("bird")) {
             stage.actors.add(new Bird(c, human));
+          } else if(value.equals("horse")) {
+            stage.actors.add(new Horse(c, human));
           }
         }
       }
@@ -45,6 +47,8 @@ public class StageReader {
       stage.actors.add(new Cat(stage.grid.cellAtColRow(0, 0).get(), true));
       stage.actors.add(new Dog(stage.grid.cellAtColRow(0, 15).get(), false));
       stage.actors.add(new Bird(stage.grid.cellAtColRow(12, 9).get(), false));
+      stage.actors.add(new Horse(stage.grid.cellAtColRow(13, 8).get(), false));
+
     }
     return stage;
   }
